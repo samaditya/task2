@@ -21,42 +21,42 @@ const Orders = () => {
   }, []);
 
   return (
-    <div className="orders-container">
+    <div className="container">
+    <div className="row">
       {info.map(product => (
-        <div key={product.id} className="product-card">
-          <h2>{product.name}</h2>
-          <p>{product.description}</p>
-          <img src={product.image} alt={product.name} />
-
-          <div className="images-container">
-            {product.images.map(image => (
-              <img key={image.title} src={image.url} alt={image.title} />
-            ))}
-          </div>
-
-          <p>Price: {product.price}</p>
-          <p>Net Price: {product.net_price}</p>
-
-          <div className="categories-container">
-            <h3>Categories:</h3>
-            <ul>
-              {product.categories.map(category => (
-                <li key={category}>{category}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="tags-container">
-            <h3>Tags:</h3>
-            <ul>
-              {product.tags.map(tag => (
-                <li key={tag}>{tag}</li>
-              ))}
-            </ul>
+        <div key={product.id} className="col-lg-4 col-md-6 mb-4">
+          <div className="card">
+            <img src={product.image} alt={product.name} className="card-img-top" />
+            <div className="card-body">
+              <h5 className="card-title">{product.name}</h5>
+              <p className="card-text">{product.description}</p>
+              <p className="card-text">Price: {product.price}</p>
+              <p className="card-text">Net Price: {product.net_price}</p>
+              
+              <div className="card-categories">
+                <h6>Categories:</h6>
+                <ul className="list-unstyled">
+                  {product.categories.map(category => (
+                    <li key={category}>{category}</li>
+                  ))}
+                </ul>
+              </div>
+  
+              <div className="card-tags">
+                <h6>Tags:</h6>
+                <ul className="list-unstyled">
+                  {product.tags.map(tag => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       ))}
     </div>
+  </div>
+  
   );
 };
 

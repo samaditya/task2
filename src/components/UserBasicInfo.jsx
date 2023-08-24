@@ -21,20 +21,27 @@ const UserBasicInfo = () => {
   }, []);
 
   return (
-    <div className="user-container">
-      <div className="user-image">
-        <img src={info.image} alt="User" />
-      </div>
-      <div className="user-details">
-        <h2>{`${info.firstname} ${info.lastname}`}</h2>
-        <p>Email: {info.email}</p>
-        <p>Phone: {info.phone}</p>
-        <p>Birthday: {info.birthday}</p>
-        <p>Gender: {info.gender}</p>
-        <p>Address: { (info.street) ? `${info.address.street}, ${info.address.city}, ${info.address.country}` : "street unavailble"}</p>
-        <p>Website: <a href={info.website}>{info.website}</a></p>
-      </div>
-    </div>
+    <div className="user-container d-flex align-items-center">
+  <div className="user-image mr-4">
+    <img src={info.image} alt="User" className="img-fluid rounded-circle" />
+  </div>
+  <div className="user-details">
+    <h2>{`${info.firstname} ${info.lastname}`}</h2>
+    <p>Email: {info.email}</p>
+    <p>Phone: {info.phone}</p>
+    <p>Birthday: {info.birthday}</p>
+    <p>Gender: {info.gender}</p>
+    <p>
+      Address: {info.street
+        ? `${info.address.street}, ${info.address.city}, ${info.address.country}`
+        : "Street unavailable"}
+    </p>
+    <p>
+      Website: <a href={info.website} target="_blank" rel="noopener noreferrer">{info.website}</a>
+    </p>
+  </div>
+</div>
+
   );
 };
 

@@ -21,17 +21,25 @@ const Creditcard = () => {
   }, []);
 
   return (
-    <div className="credit-card-container">
-      <h2>Credit Card Information</h2>
-      {info.type && (
-        <div className="credit-card">
-          <p>Type: {info.type}</p>
-          <p>Number: {info.number}</p>
-          <p>Expiration: {info.expiration}</p>
-          <p>Owner: {info.owner}</p>
-        </div>
-      )}
+    <div className="container user-container">
+    <div className="card credit-card-container">
+      <div className="card-body">
+        <h2 className="card-title">Credit Card Information</h2>
+        {info.type && (
+          <div className="card credit-card">
+            <div className="card-body">
+              <p className="card-text">Type: {info.type}</p>
+              <p className="card-text">Number: {info.number}</p>
+              <p className="card-text">Expiration: {info.expiration}</p>
+              <p className="card-text">Owner: {info.owner}</p>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
+  </div>
+  
+
   );
 };
 
